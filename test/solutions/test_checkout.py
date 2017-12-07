@@ -7,6 +7,9 @@ class TestSum(unittest.TestCase):
     def test_a_offer(self):
         self.assertEqual(130, checkout('AAA'))
 
+    def test_a_single(self):
+        self.assertEqual(50, checkout("A"))
+
     def test_b_offer(self):
         self.assertEqual(45, checkout('BB'))
 
@@ -16,7 +19,7 @@ class TestSum(unittest.TestCase):
     def test_error(self):
         self.assertEqual(-1, checkout('E'))
 
-    def test_error(self):
+    def test_other_error(self):
         self.assertEqual(-1, checkout(2))
 
 
