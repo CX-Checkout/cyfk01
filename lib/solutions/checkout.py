@@ -8,7 +8,7 @@ individual_prices = {
 
 # noinspection PyUnusedLocal
 def checkout(skus):
-    if not isinstance(skus, str):
+    if not isinstance(skus, basestring):
         return -1
     items = {x: 0 for x in 'ABCD'}
     try:

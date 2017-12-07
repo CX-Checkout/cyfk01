@@ -25,6 +25,9 @@ class TestSum(unittest.TestCase):
     def test_other_error(self):
         self.assertEqual(-1, checkout(2))
 
+    def test_unicode(self):
+        self.assertEqual(130, checkout(u'AAA'))
+
 
 if __name__ == '__main__':
     unittest.main()
