@@ -61,8 +61,10 @@ class Offer(object):
 
         if item_count < self.total_count:
             return items, price
-        num_required = self.required
+        num_required = self.total_count
         for type in sorted_required:
+            print self.required
+            print sorted_required
             number = min(items[type], num_required)
             num_required -= number
             items[type] -= number
@@ -72,7 +74,7 @@ class Offer(object):
 
 
 offers = [
-    Offer(required='STXYX', cost=45, type='group', total_count=3),
+    Offer(required='STXYZ', cost=45, type='group', total_count=3),
     Offer(required={'A': 5}, cost=200),
     Offer(required={'A': 3}, cost=130),
     Offer(required={'E': 2, 'B': 1}, cost=80),
