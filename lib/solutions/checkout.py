@@ -10,7 +10,7 @@ individual_prices = {
     'H': 10,
     'I': 35,
     'J': 60,
-    'K': 80,
+    'K': 70,
     'L': 90,
     'M': 15,
     'N': 40,
@@ -18,14 +18,14 @@ individual_prices = {
     'P': 50,
     'Q': 30,
     'R': 50,
-    'S': 30,
+    'S': 20,
     'T': 20,
     'U': 40,
     'V': 50,
     'W': 20,
-    'X': 90,
-    'Y': 10,
-    'Z': 50
+    'X': 17,
+    'Y': 20,
+    'Z': 21,
 }
 
 class Offer(object):
@@ -38,7 +38,7 @@ class Offer(object):
     def process(self, items, price):
         if self.type == 'normal':
             return self.process_normal(items, price)
-        elif self.type =='group':
+        elif self.type == 'group':
             return self.process_group(items, price)
 
     def process_normal(self, items, price):
@@ -54,18 +54,25 @@ class Offer(object):
         return self.process(items, price)
 
     def process_group(self, items, price):
-        sorted_required = sorted(self.required, key=individual_prices.get, )
+        sorted_required = sorted(self.required, key=individual_prices.get, reverse=False)
         item_count = 0
-        for type in self.required:
+        for type in sorted_required:
             item_count += items[type]
 
         if item_count < self.total_count:
             return items, price
+        num_required = self.required
+        for type in sorted_required:
+            number = min(items[type], num_required)
+            num_required -= number
+            items[type] -= number
 
-
+        price += self.cost
+        return self.process(items, price)
 
 
 offers = [
+    Offer(required='STXYX', cost=45, type='group', total_count=3),
     Offer(required={'A': 5}, cost=200),
     Offer(required={'A': 3}, cost=130),
     Offer(required={'E': 2, 'B': 1}, cost=80),
@@ -73,7 +80,7 @@ offers = [
     Offer(required={'F': 3}, cost=20),
     Offer(required={'H': 10}, cost=80),
     Offer(required={'H': 5}, cost=45),
-    Offer(required={'K': 2}, cost=150),
+    Offer(required={'K': 2}, cost=120),
     Offer(required={'N': 3, 'M': 1}, cost=120),
     Offer(required={'P': 5}, cost=200),
     Offer(required={'R': 3, 'Q': 1}, cost=150),
