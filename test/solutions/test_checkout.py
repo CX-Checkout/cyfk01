@@ -20,7 +20,7 @@ class TestSum(unittest.TestCase):
         self.assertEqual(160, checkout('BBABCD'))
 
     def test_error(self):
-        self.assertEqual(-1, checkout('Y'))
+        self.assertEqual(-1, checkout('-'))
 
     def test_other_error(self):
         self.assertEqual(-1, checkout(2))

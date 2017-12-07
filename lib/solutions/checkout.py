@@ -1,10 +1,31 @@
+
 individual_prices = {
     'A': 50,
     'B': 30,
     'C': 20,
     'D': 15,
     'E': 40,
-    'F': 10
+    'F': 10,
+    'G': 20,
+    'H': 10,
+    'I': 35,
+    'J': 60,
+    'K': 80,
+    'L': 90,
+    'M': 15,
+    'N': 40,
+    'O': 10,
+    'P': 50,
+    'Q': 30,
+    'R': 50,
+    'S': 30,
+    'T': 20,
+    'U': 40,
+    'V': 50,
+    'W': 20,
+    'X': 90,
+    'Y': 10,
+    'Z': 50
 }
 
 class Offer(object):
@@ -31,6 +52,16 @@ offers = [
     Offer(required={'E': 2, 'B': 1}, cost=80),
     Offer(required={'B': 2}, cost=45),
     Offer(required={'F': 3}, cost=20),
+    Offer(required={'H': 10}, cost=80),
+    Offer(required={'H': 5}, cost=45),
+    Offer(required={'K': 2}, cost=150),
+    Offer(required={'N': 3, 'M': 1}, cost=120),
+    Offer(required={'P': 5}, cost=200),
+    Offer(required={'R': 3, 'Q': 1}, cost=150),
+    Offer(required={'Q': 3}, cost=80),
+    Offer(required={'U': 4}, cost=120),
+    Offer(required={'V': 3}, cost=130),
+    Offer(required={'V': 2}, cost=90),
 ]
 
 
