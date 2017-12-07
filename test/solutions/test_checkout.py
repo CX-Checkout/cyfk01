@@ -35,8 +35,7 @@ class TestSum(unittest.TestCase):
         self.assertEqual(130, checkout('EEBA'))
 
     def test_be_double_offer(self):
-        self.assertEqual(130, checkout('EEEEBB'))
-
+        self.assertEqual(160, checkout('EEEEBB'))
 
     def test_both_a_offer(self):
         self.assertEqual(410, checkout('AAAAAAAAAB'))
