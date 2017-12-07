@@ -8,6 +8,9 @@ class TestSum(unittest.TestCase):
         self.assertEqual(130, checkout('AAA'))
 
     def test_a_single(self):
+        self.assertEqual(0, checkout(""))
+
+    def test_blank(self):
         self.assertEqual(50, checkout("A"))
 
     def test_b_offer(self):
