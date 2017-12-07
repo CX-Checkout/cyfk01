@@ -44,7 +44,13 @@ class TestSum(unittest.TestCase):
         self.assertEqual(440, checkout('AAAAAAAAABFFFF'))
 
     def test_group_offer(self):
-        self.assertEqual(522, checkout('AAAAAAAAABFFFFSTXYZ'))
+        self.assertEqual(45 + 20 + 17, checkout('STXYZ'))
+
+    def test_group_part(self):
+        self.assertEqual(45 + 17, checkout('SXYZ'))
+
+    def test_both(self):
+        self.assertEqual(440 + 45 + 20 + 17, checkout('AAAAAAAAABFFFFSTXYZ'))
 
 
 if __name__ == '__main__':

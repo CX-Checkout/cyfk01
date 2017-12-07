@@ -54,7 +54,7 @@ class Offer(object):
         return self.process(items, price)
 
     def process_group(self, items, price):
-        sorted_required = sorted(self.required, key=individual_prices.get, reverse=False)
+        sorted_required = sorted(self.required, key=individual_prices.get, reverse=True)
         item_count = 0
         for type in sorted_required:
             item_count += items[type]
@@ -63,8 +63,6 @@ class Offer(object):
             return items, price
         num_required = self.total_count
         for type in sorted_required:
-            print self.required
-            print sorted_required
             number = min(items[type], num_required)
             num_required -= number
             items[type] -= number
