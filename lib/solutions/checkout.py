@@ -8,6 +8,8 @@ individual_prices = {
 
 # noinspection PyUnusedLocal
 def checkout(skus):
+    if not isinstance(skus, str):
+        return -1
     items = {x: 0 for x in 'ABCD'}
     try:
         for x in skus:
@@ -22,7 +24,7 @@ def checkout(skus):
 
     while items['B'] >= 2:
         price += 45
-        items['A'] -= 2
+        items['B'] -= 2
 
     for item, count in items.iteritems():
         price += individual_prices[item] * count
