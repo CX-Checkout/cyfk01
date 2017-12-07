@@ -29,11 +29,19 @@ individual_prices = {
 }
 
 class Offer(object):
-    def __init__(self, required, cost):
+    def __init__(self, required, cost, type='normal', total_count=0):
         self.required = required
         self.cost = cost
+        self.type = type
+        self.total_count = total_count
 
     def process(self, items, price):
+        if self.type == 'normal':
+            return self.process_normal(items, price)
+        elif self.type =='group':
+            return self.process_group(items, price)
+
+    def process_normal(self, items, price):
         for type in individual_prices.keys():
             if self.required.get(type, 0) > items[type]:
                 return items, price
@@ -44,6 +52,17 @@ class Offer(object):
         price += self.cost
 
         return self.process(items, price)
+
+    def process_group(self, items, price):
+        sorted_required = sorted(self.required, key=individual_prices.get, )
+        item_count = 0
+        for type in self.required:
+            item_count += items[type]
+
+        if item_count < self.total_count:
+            return items, price
+
+
 
 
 offers = [
