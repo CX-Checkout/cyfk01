@@ -40,6 +40,9 @@ class TestSum(unittest.TestCase):
     def test_both_a_offer(self):
         self.assertEqual(410, checkout('AAAAAAAAAB'))
 
+    def test_f_offer(self):
+        self.assertEqual(440, checkout('AAAAAAAAABFFFF'))
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -4,6 +4,7 @@ individual_prices = {
     'C': 20,
     'D': 15,
     'E': 40,
+    'F': 10
 }
 
 class Offer(object):
@@ -29,6 +30,7 @@ offers = [
     Offer(required={'A': 3}, cost=130),
     Offer(required={'E': 2, 'B': 1}, cost=80),
     Offer(required={'B': 2}, cost=45),
+    Offer(required={'F': 3}, cost=20),
 ]
 
 
